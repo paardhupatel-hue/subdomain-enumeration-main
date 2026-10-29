@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subscope | Subdomain Enumeration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">//</span><span>SUBSCOPE</span></div>
+      <span class="eyebrow">PROJECT 05 / DNS UTILITY</span>
+    </header>
+
+    <section class="intro">
+      <p class="kicker">LIGHTWEIGHT RECONNAISSANCE</p>
+      <h1>Map the edges<br><em>of a domain.</em></h1>
+      <p class="lede">A focused DNS check for ten common subdomain patterns. Built for quick, responsible security demonstrations.</p>
+    </section>
+
+    <section class="control-panel" aria-label="Enumeration controls">
+      <label for="domain">TARGET DOMAIN</label>
+      <div class="input-row">
+        <input id="domain" name="domain" type="text" placeholder="example.com" autocomplete="off">
+        <button id="enumerate" type="button"><span>ENUMERATE</span><span class="arrow">-&gt;</span></button>
+      </div>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section id="results" class="results" hidden>
+      <div class="results-heading">
+        <div><p class="kicker">SCAN COMPLETE</p><h2 id="target-label">example.com</h2></div>
+        <span class="status-pill"><span class="pulse"></span>DNS RESOLUTION</span>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-card"><span>Total Tested</span><strong id="total">-</strong></div>
+        <div class="summary-card found"><span>Found</span><strong id="found">-</strong></div>
+        <div class="summary-card missing"><span>Not Found</span><strong id="not-found">-</strong></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Subdomain</th><th>Status</th><th>Resolved IP</th></tr></thead>
+          <tbody id="result-rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer><span>WORDLIST / 10 COMMON PREFIXES</span><span>FOR AUTHORIZED TESTING ONLY</span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

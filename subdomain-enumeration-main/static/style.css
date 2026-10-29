@@ -1,0 +1,40 @@
+:root {
+  --ink: #14211f;
+  --muted: #6d7b76;
+  --paper: #f4f5ef;
+  --line: #d7ddd4;
+  --mint: #cbe9d8;
+  --green: #2b785b;
+  --coral: #dd7158;
+  --yellow: #f3d36a;
+  --mono: 'DM Mono', monospace;
+  --sans: 'Space Grotesk', sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); }
+body::before { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .32; background-image: radial-gradient(#bec8bd 0.7px, transparent 0.7px); background-size: 18px 18px; }
+.shell { width: min(1080px, calc(100% - 48px)); margin: auto; position: relative; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; border-bottom: 1px solid var(--line); font: 500 11px var(--mono); letter-spacing: .08em; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.brand-mark { color: var(--green); font-size: 18px; }
+.eyebrow, .kicker, footer { color: var(--muted); letter-spacing: .12em; }
+.intro { padding: 78px 0 54px; max-width: 700px; }
+.kicker { margin: 0 0 18px; font: 500 11px var(--mono); }
+h1 { margin: 0; font-size: clamp(48px, 8vw, 92px); line-height: .92; letter-spacing: -.055em; font-weight: 600; }
+h1 em { color: var(--green); font-style: normal; }
+.lede { color: var(--muted); max-width: 440px; margin: 28px 0 0; line-height: 1.6; font-size: 16px; }
+.control-panel { padding: 24px; border: 1px solid var(--ink); background: rgba(255,255,255,.35); box-shadow: 8px 8px 0 var(--yellow); }
+label, th { font: 500 11px var(--mono); letter-spacing: .08em; }
+.input-row { display: flex; gap: 12px; margin-top: 12px; }
+input { min-width: 0; flex: 1; border: 1px solid var(--line); background: #fff; color: var(--ink); padding: 16px; font: 16px var(--mono); outline: none; }
+input:focus { border-color: var(--green); box-shadow: 0 0 0 3px var(--mint); }
+button { border: 0; background: var(--ink); color: #fff; padding: 0 22px; min-width: 170px; font: 500 12px var(--mono); letter-spacing: .05em; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+button:hover { background: var(--green); } button:disabled { opacity: .6; cursor: wait; }
+.arrow { color: var(--yellow); font-size: 18px; }
+.message { min-height: 18px; margin: 12px 0 0; color: var(--muted); font: 12px var(--mono); }.message.error { color: var(--coral); }.message.success { color: var(--green); }.message.loading { color: var(--ink); }
+.results { padding: 80px 0 70px; }.results-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 24px; }h2 { margin: 0; font-size: 32px; letter-spacing: -.04em; }.status-pill { font: 11px var(--mono); color: var(--green); }.pulse { display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: var(--green); }
+.summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 28px; }.summary-card { padding: 20px; border-top: 3px solid var(--ink); background: #e8ebe3; }.summary-card.found { border-color: var(--green); background: var(--mint); }.summary-card.missing { border-color: var(--coral); background: #f5ddd4; }.summary-card span { font: 11px var(--mono); color: var(--muted); }.summary-card strong { display: block; margin-top: 10px; font-size: 38px; font-weight: 500; }
+.table-wrap { overflow-x: auto; border-top: 1px solid var(--ink); }table { width: 100%; border-collapse: collapse; text-align: left; }th, td { padding: 16px 12px; border-bottom: 1px solid var(--line); }th { color: var(--muted); }td { font: 14px var(--mono); }.ip { color: var(--muted); }.result-status { font-size: 11px; }.is-found { color: var(--green); }.is-missing { color: var(--coral); }
+footer { display: flex; justify-content: space-between; padding: 20px 0 32px; border-top: 1px solid var(--line); font: 10px var(--mono); }
+@media (max-width: 620px) { .shell { width: min(100% - 28px, 1080px); }.topbar { padding: 22px 0; }.eyebrow { display: none; }.intro { padding: 58px 0 38px; }h1 { font-size: 54px; }.input-row { flex-direction: column; }button { min-height: 50px; }.results-heading { align-items: start; flex-direction: column; gap: 16px; }.summary-grid { gap: 8px; }.summary-card { padding: 14px 10px; }.summary-card strong { font-size: 30px; }footer { gap: 12px; flex-direction: column; } }
